@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="OshunWebStudio - Agence digitale de création de sites web, apps mobiles, intégration paiement & SaaS. Prix adaptés au Mali, Afrique de l'Ouest & international.">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="icon" type="image/png" href="ows.jpg">
+    <link rel="shortcut icon" href="ows.jpg" type="image/png">
+    <link rel="apple-touch-icon" href="ows.jpg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+    <title>OshunWebStudio | Sites Web • Apps • Paiement • SaaS</title>
+
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#08EB08',
+                            black: '#000000',
+                            white: '#FFFFFF',
+                            'gray-dark': '#0a0a0a',
+                            'gray-light': '#111111',
+                            'card': '#0f0f0f',
+                            'border': '#1f1f1f',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Cal Sans'],
+                        calsans: ['Cal Sans', 'Inter'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.7s ease-out forwards',
+                        'slide-up': 'slideUp 0.7s ease-out forwards',
+                        'pulse-green': 'pulseGreen 2s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseGreen: {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(8, 235, 8, 0.4)' },
+                            '50%': { boxShadow: '0 0 0 18px rgba(8, 235, 8, 0)' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- Google Fonts: Inter (fallback + body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'Cal Sans';
+            src: url('https://cdn.jsdelivr.net/npm/cal-sans@1.0.1/dist/webfonts/CalSans-SemiBold.woff2') format('woff2');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Cal Sans';
+            src: url('https://cdn.jsdelivr.net/npm/cal-sans@1.0.1/dist/webfonts/CalSans-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #08EB08;
+            border-radius: 10px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .logo-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #08EB08;
+            border-radius: 50%;
+            animation: pulseGreen 2s infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(8, 235, 8, 0.15);
+            border-color: #08EB08;
+        }
+
+        /* Full black background with subtle gradient */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* Soft green glow on hover for black cards */
+        .bg-card {
+            background-color: #0f0f0f;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans antialiased">
+
+    <!-- BACKGROUND ANIMÉ -->
+    <div class="fixed inset-0 -z-10">
+        <div class="aura-background-component w-full h-full">
+            <div data-us-project="yaha7Bz5f3cRBAa5js9K"></div>
+        </div>
+    </div>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav id="navbar"
+        class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <a href="#hero" class="flex items-center hover:opacity-80 transition-opacity select-none">
+                    <img src="Frame 4.svg" alt="Oshun Web Logo"
+                        class="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain">
+
+                </a>
+
+                <div class="hidden lg:flex items-center gap-8 text-sm font-medium">
+                    <a href="#services" class="text-gray-300 hover:text-brand-green transition-colors">Services</a>
+                    <a href="#tarifs" class="text-gray-300 hover:text-brand-green transition-colors">Tarifs</a>
+                    <a href="#saas" class="text-gray-300 hover:text-brand-green transition-colors">SaaS</a>
+                    <a href="#paiement" class="text-gray-300 hover:text-brand-green transition-colors">Paiement</a>
+                    <a href="#faq" class="text-gray-300 hover:text-brand-green transition-colors">Infos</a>
+                    <a href="#contact"
+                        class="px-5 py-2.5 bg-brand-green text-black font-semibold rounded-full hover:bg-white hover:text-black transition-all duration-300 shadow-md hover:shadow-lg">
+                        Démarrez un projet
+                    </a>
+                </div>
+
+                <button id="menuBtn"
+                    class="lg:hidden relative w-9 h-9 flex flex-col items-center justify-center gap-1.5 z-50"
+                    aria-label="Menu">
+                    <span class="block w-6 h-0.5 bg-white transition-all duration-300 rounded-full" id="bar1"></span>
+                    <span class="block w-6 h-0.5 bg-white transition-all duration-300 rounded-full" id="bar2"></span>
+                    <span class="block w-5 h-0.5 bg-white transition-all duration-300 rounded-full self-end"
+                        id="bar3"></span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu"
+            class="lg:hidden hidden bg-black border-t border-gray-800 shadow-2xl absolute top-full left-0 w-full pb-6 px-4 transition-all duration-300">
+            <div class="flex flex-col gap-4 pt-4 text-base font-medium">
+                <a href="#services"
+                    class="mobile-link py-2 px-3 rounded-lg text-gray-300 hover:bg-gray-900 hover:text-brand-green transition-colors">Services</a>
+                <a href="#tarifs"
+                    class="mobile-link py-2 px-3 rounded-lg text-gray-300 hover:bg-gray-900 hover:text-brand-green transition-colors">Tarifs</a>
+                <a href="#saas"
+                    class="mobile-link py-2 px-3 rounded-lg text-gray-300 hover:bg-gray-900 hover:text-brand-green transition-colors">SaaS</a>
+                <a href="#paiement"
+                    class="mobile-link py-2 px-3 rounded-lg text-gray-300 hover:bg-gray-900 hover:text-brand-green transition-colors">Paiement</a>
+                <a href="#faq"
+                    class="mobile-link py-2 px-3 rounded-lg text-gray-300 hover:bg-gray-900 hover:text-brand-green transition-colors">Infos</a>
+                <a href="#contact"
+                    class="mobile-link py-3 px-5 bg-brand-green text-black font-semibold rounded-full text-center hover:bg-white transition-all duration-300">Démarrez
+                    un projet</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="hero"
+        class="relative min-h-screen flex items-center justify-center pt-20 lg:pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-black">
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
+            style="background-image: radial-gradient(circle, #08EB08 1px, transparent 1px); background-size: 30px 30px;">
+        </div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 bg-gray-900 border border-gray-800 rounded-full text-xs sm:text-sm font-medium text-gray-300 mb-6 reveal">
+                <span class="w-2 h-2 bg-brand-green rounded-full animate-pulse"></span>
+                Basé au Mali • Clients dans le monde entier
+            </div>
+
+            <h1
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-calsans font-bold tracking-tight leading-[1.08] mb-6 text-white reveal">
+                Votre <span class="text-brand-green">vision</span>,<br>
+                notre <span class="relative">code<span
+                        class="absolute -bottom-1 left-0 w-full h-1.5 bg-brand-green/30 rounded-full"></span></span>.
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 reveal leading-relaxed">
+                OshunWebStudio crée des <strong class="text-white">sites web sur mesure</strong>, des <strong
+                    class="text-white">applications mobiles</strong> et des <strong class="text-white">SaaS</strong> qui
+                génèrent du revenu passif. Du Mali au monde entier — qualité premium, prix justes.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal">
+                <a href="#tarifs"
+                    class="w-full sm:w-auto px-8 py-4 bg-brand-green text-black font-bold rounded-full text-lg hover:bg-white hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl animate-pulse-green">
+                    Voir les tarifs
+                </a>
+                <a href="#services"
+                    class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-full text-lg hover:bg-white hover:text-black transition-all duration-300">
+                    Nos services
+                </a>
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center gap-6 mt-12 text-xs sm:text-sm text-gray-500 reveal">
+                <span>✅ Sites Vitrine</span>
+                <span>✅ E-Commerce</span>
+                <span>✅ Apps Mobiles</span>
+                <span>✅ Paiement Mobile Money</span>
+                <span>✅ SaaS</span>
+            </div>
+        </div>
+    </section>
+    <!-- ==================== SERVICES ==================== -->
+    <section id="services" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-green font-semibold text-sm tracking-widest uppercase">Notre Expertise</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-calsans font-bold mt-3 mb-4 text-white">Des Solutions
+                    Digitales Sur-Mesure
+                </h2>
+                <p class="text-gray-400 max-w-xl mx-auto">De la création de votre identité web au déploiement
+                    d'applications complexes, nous transformons vos idées en plateformes performantes et rentables.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div
+                    class="card-hover bg-card border border-gray-800 rounded-2xl p-6 lg:p-8 reveal group cursor-default">
+                    <div
+                        class="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-green/20 transition-colors">
+                        <svg class="w-6 h-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Site Vitrine Pro</h3>
+                    <p class="text-gray-400 text-sm mb-4">Asseyez la crédibilité de votre entreprise avec un site
+                        professionnel, optimisé pour le référencement local.</p>
+                    <span class="text-brand-green font-bold text-lg">à partir de 300k FCFA</span>
+                </div>
+
+                <div
+                    class="card-hover bg-card border border-gray-800 rounded-2xl p-6 lg:p-8 reveal group cursor-default">
+                    <div
+                        class="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-green/20 transition-colors">
+                        <svg class="w-6 h-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Landing Page Impact</h3>
+                    <p class="text-gray-400 text-sm mb-4">Une page unique ultra-optimisée, conçue avec un seul objectif
+                        : convertir vos visiteurs en clients.</p>
+                    <span class="text-brand-green font-bold text-lg">à partir de 150k FCFA</span>
+                </div>
+
+                <div
+                    class="card-hover bg-card border border-gray-800 rounded-2xl p-6 lg:p-8 reveal group cursor-default">
+                    <div
+                        class="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-green/20 transition-colors">
+                        <svg class="w-6 h-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">E-Commerce Local</h3>
+                    <p class="text-gray-400 text-sm mb-4">Votre boutique clé en main. Gestion des commandes et
+                        intégration des paiements Mobile Money incluse.</p>
+                    <span class="text-brand-green font-bold text-lg">à partir de 500k FCFA</span>
+                </div>
+
+                <div
+                    class="card-hover bg-card border border-gray-800 rounded-2xl p-6 lg:p-8 reveal group cursor-default">
+                    <div
+                        class="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-green/20 transition-colors">
+                        <svg class="w-6 h-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Portfolio Élégant</h3>
+                    <p class="text-gray-400 text-sm mb-4">Démarquez-vous avec une vitrine visuelle épurée, idéale pour
+                        les freelances, artistes et consultants.</p>
+                    <span class="text-brand-green font-bold text-lg">à partir de 70k FCFA</span>
+                </div>
+
+                <div
+                    class="card-hover bg-card border border-gray-800 rounded-2xl p-6 lg:p-8 reveal group cursor-default">
+                    <div
+                        class="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-green/20 transition-colors">
+                        <svg class="w-6 h-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Application Web (SaaS)</h3>
+                    <p class="text-gray-400 text-sm mb-4">Développement sur-mesure de plateformes métiers, dashboards
+                        sécurisés et outils SaaS évolutifs.</p>
+                    <span class="text-brand-green font-bold text-lg">à partir de 800k FCFA</span>
+                </div>
+
+                <div
+                    class="card-hover bg-card border border-gray-800 rounded-2xl p-6 lg:p-8 reveal group cursor-default">
+                    <div
+                        class="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-green/20 transition-colors">
+                        <svg class="w-6 h-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Mise en Production</h3>
+                    <p class="text-gray-400 text-sm mb-4">Déploiement sécurisé : configuration domaine, serveurs cloud,
+                        certificats SSL et emails professionnels.</p>
+                    <span class="text-brand-green font-bold text-lg">à partir de 50k FCFA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TARIFS - APPS & PAIEMENT ==================== -->
+    <section id="tarifs" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-green font-semibold text-sm tracking-widest uppercase">Investissement
+                    Rentable</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-calsans font-bold mt-3 mb-4 text-white">Apps Mobiles &
+                    Écosystème de Paiement</h2>
+                <p class="text-gray-400 max-w-xl mx-auto">Des tarifs transparents pour propulser votre business. <br
+                        class="hidden sm:block">Prix optimisés pour le Mali et la sous-région — <a href="#contact"
+                        class="text-brand-green underline font-medium">contactez-nous</a> pour un devis international.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+                <div class="bg-card rounded-2xl p-6 lg:p-8 border border-gray-800 card-hover reveal text-center">
+                    <img src="assets/icons/android.png" class="h-14 mx-auto" alt="Android">
+                    <h3 class="text-xl font-bold text-white mb-1">App Android</h3>
+                    <p class="text-gray-400 text-sm mb-3">Développement natif ciblé</p>
+                    <span class="text-brand-green font-bold text-2xl">400k FCFA</span>
+                    <p class="text-xs text-gray-500 mt-2">à partir de</p>
+                </div>
+                <div class="bg-card rounded-2xl p-6 lg:p-8 border border-gray-800 card-hover reveal text-center">
+                    <img src="assets/icons/apple.png" class="h-16 mx-auto" alt="apple">
+                    <h3 class="text-xl font-bold text-white mb-1">App iOS</h3>
+                    <p class="text-gray-400 text-sm mb-3">Expérience premium & fluide</p>
+                    <span class="text-brand-green font-bold text-2xl">500k FCFA</span>
+                    <p class="text-xs text-gray-500 mt-2">à partir de</p>
+                </div>
+                <div
+                    class="bg-card rounded-2xl p-6 lg:p-8 border border-gray-800 card-hover reveal text-center sm:col-span-2 lg:col-span-1">
+                    <img src="assets/icons/cross.png" class="h-16 mx-auto" alt="cross-platform">
+                    <h3 class="text-xl font-bold text-white mb-1">Cross Platform (Best-Seller)</h3>
+                    <p class="text-gray-400 text-sm mb-3">Une base de code, iOS & Android</p>
+                    <span class="text-brand-green font-bold text-2xl">650k FCFA</span>
+                    <p class="text-xs text-gray-500 mt-2">à partir de</p>
+                </div>
+            </div>
+
+           <div class="bg-card rounded-2xl p-8 lg:p-10 border border-gray-800 reveal">
+    <h3 class="text-2xl font-calsans font-bold mb-8 text-center text-white">💳 Intégration Paiement & Suivi Continu</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        
+        <!-- Pack Starter -->
+        <div class="p-6 rounded-xl bg-orange-900/30 border border-orange-800/50 flex flex-col justify-between">
+            <div class="text-center mb-6">
+                <img src="assets/icons/orange-money.svg" class="h-14 mx-auto mb-3" alt="Pack Starter">
+                <span class="text-2xl font-bold text-orange-300 block">Pack Starter</span>
+                <p class="text-brand-green font-bold text-2xl mt-2">300k FCFA</p>
+                <p class="text-xs text-gray-400 mt-1">Passerelle Unifiée (Redirection / Popup)</p>
+            </div>
+            <ul class="text-left text-sm text-gray-300 space-y-3 border-t border-orange-800/30 pt-4">
+                <li class="flex items-start">
+                    <span class="text-brand-green mr-2 font-bold">✓</span>
+                    <span>Activation simultanée de <strong>Orange Money, Wave Mali et Moov Money</strong>.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-brand-green mr-2 font-bold">✓</span>
+                    <span>Intégration standard idéale pour CMS (WooCommerce, Shopify, PrestaShop).</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-brand-green mr-2 font-bold">✓</span>
+                    <span>Accompagnement complet pour la création de votre dossier juridique (KYC Marchand).</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-brand-green mr-2 font-bold">✓</span>
+                    <span>Sécurisation des transactions via le guichet crypté CinetPay.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-brand-green mr-2 font-bold">✓</span>
+                    <span>Garantie support technique de <strong>1 mois offert</strong> après la mise en ligne.</span>
+                </li>
+            </ul>
+        </div>
+
+        
+
+        <!-- Maintenance -->
+        <div class="p-6 rounded-xl bg-green-900/30 border border-green-800/50 flex flex-col justify-between">
+            <div class="text-center mb-6">
+                <img src="assets/icons/moov-money.png" class="h-14 mx-auto mb-3" alt="Maintenance Mensuelle">
+                <span class="text-2xl font-bold text-green-300 block">Maintenance</span>
+                <p class="text-brand-green font-bold text-2xl mt-2">25k FCFA <span class="text-sm font-normal text-gray-400">/ mois</span></p>
+                <p class="text-xs text-gray-400 mt-1">Sérénité Technique & Continuité de Service</p>
+            </div>
+            <ul class="text-left text-sm text-gray-300 space-y-3 border-t border-green-800/30 pt-4">
+                <li class="flex items-start">
+                    <span class="text-brand-green mr-2 font-bold">✓</span>
+                    <span>Monitoring continu (24h/24) des flux de paiement pour prévenir toute interruption de vos ventes.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-brand-green mr-2 font-bold">✓</span>
+                    <span>Mises à jour de sécurité régulières des modules et scripts d'intégration.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-brand-green mr-2 font-bold">✓</span>
+                    <span>Sauvegardes automatiques et sécurisées de votre base de données transactionnelle.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-brand-green mr-2 font-bold">✓</span>
+                    <span><strong>Assistance prioritaire sous 4h</strong> en cas d'anomalie ou de mise à jour des API opérateurs.</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+            <p class="text-center text-sm text-gray-500 mt-8 reveal">🌍 Les offres de paiement intègrent nativement les
+                moyens locaux les plus populaires. <strong class="text-white">Un accompagnement stratégique est inclus
+                    dans chacune de nos prestations.</strong></p>
+        </div>
+    </section>
+    <!-- ==================== PAIEMENT ==================== -->
+    <section id="paiement" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-green font-semibold text-sm tracking-widest uppercase">Moyens de paiement</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-calsans font-bold mt-3 mb-4 text-white">Comment payer ?
+                </h2>
+                <p class="text-gray-400 max-w-xl mx-auto">Nous acceptons une large gamme de moyens de paiement pour vous
+                    faciliter la vie.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6 reveal">
+
+                <div class="bg-card rounded-xl p-5 border border-gray-800 text-center card-hover">
+                    <img src="assets/icons/bank.svg" class="h-14 mx-auto mb-2" alt="Bank Transfer">
+                    <span class="text-sm font-semibold text-gray-300">Virement bancaire</span>
+                </div>
+
+                <div class="bg-card rounded-xl p-5 border border-gray-800 text-center card-hover">
+                    <img src="assets/icons/orange-money.svg" class="h-14 mx-auto mb-2" alt="Orange Money">
+                    <span class="text-sm font-semibold text-gray-300">Orange Money</span>
+                </div>
+
+                <div class="bg-card rounded-xl p-5 border border-gray-800 text-center card-hover">
+                    <img src="assets/icons/wave.png" class="h-14 mx-auto mb-2" alt="Wave">
+                    <span class="text-sm font-semibold text-gray-300">Wave</span>
+                </div>
+
+                <div class="bg-card rounded-xl p-5 border border-gray-800 text-center card-hover">
+                    <img src="assets/icons/tether.svg" class="h-14 mx-auto mb-2" alt="USDT USDC">
+                    <span class="text-sm font-semibold text-gray-300">USDT / USDC</span>
+                </div>
+
+                <div class="bg-card rounded-xl p-5 border border-gray-800 text-center card-hover">
+                    <img src="assets/icons/paypal.svg" class="h-14 mx-auto mb-2" alt="PayPal">
+                    <span class="text-sm font-semibold text-gray-300">PayPal</span>
+                </div>
+
+                <div class="bg-card rounded-xl p-5 border border-gray-800 text-center card-hover">
+                    <img src="assets/icons/skrill.svg" class="h-14 mx-auto mb-2" alt="Skrill">
+                    <span class="text-sm font-semibold text-gray-300">Skrill</span>
+                </div>
+
+            </div>
+
+            <div class="mt-10 p-6 bg-red-900/20 border border-red-800 rounded-2xl reveal">
+                <h4 class="font-bold text-red-400 mb-2 flex items-center gap-2">🚫 Nous n'acceptons PAS :</h4>
+                <ul class="text-sm text-red-300 space-y-1">
+                    <li>• Les espèces au-delà de <strong>2 000 000 FCFA</strong></li>
+                    <li>• Les chèques ni effets de commerce</li>
+                    <li>• Les paiements à crédit</li>
+                </ul>
+            </div>
+
+            <div class="mt-6 p-6 bg-card border border-gray-800 rounded-2xl reveal">
+                <h4 class="font-bold text-white mb-2 flex items-center gap-2">🔙 Politique de remboursement</h4>
+                <p class="text-sm text-gray-400">Pas de remboursement sans justification valable. En cas de
+                    remboursement accepté, le client peut réclamer <strong class="text-brand-green">uniquement 47% de la
+                        somme totale</strong> versée. Toute la somme affichée sur le devis doit être réglée <strong
+                        class="text-white">avant la livraison</strong> du projet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ / INFOS ==================== -->
+    <section id="faq" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-black">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-green font-semibold text-sm tracking-widest uppercase">Infos clés</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-calsans font-bold mt-3 mb-4 text-white">Ce qu'il faut
+                    savoir</h2>
+            </div>
+
+            <div class="space-y-4 reveal">
+                <details
+                    class="group bg-card rounded-2xl p-6 border border-gray-800 hover:border-brand-green/30 transition-colors cursor-pointer">
+                    <summary class="font-bold text-lg text-white flex items-center justify-between list-none">
+                        🤝 Comment je travaille avec d'autres développeurs
+                        <span class="text-brand-green text-xl group-open:rotate-45 transition-transform">+</span>
+                    </summary>
+                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">
+                        Je dispose d'un <strong class="text-white">groupe WhatsApp</strong> avec des développeurs de
+                        confiance. Quand un projet client arrive, je poste le job dans le groupe comme une « chasse aux
+                        primes ». Les développeurs intéressés postulent, je sélectionne le meilleur profil, et je le
+                        rémunère sur le projet. <br><br>
+                        ✅ Pas de salariés à charge <br>
+                        ✅ Flexibilité totale <br>
+                        ✅ Qualité garantie par la compétition
+                    </p>
+                </details>
+
+                <details
+                    class="group bg-card rounded-2xl p-6 border border-gray-800 hover:border-brand-green/30 transition-colors cursor-pointer">
+                    <summary class="font-bold text-lg text-white flex items-center justify-between list-none">
+                        ⚖️ Structure légale
+                        <span class="text-brand-green text-xl group-open:rotate-45 transition-transform">+</span>
+                    </summary>
+                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">
+                        L'agence sera d'abord enregistrée en tant qu'<strong class="text-white">entreprise
+                            individuelle</strong> (coût : 10 000 FCFA), puis évoluera en <strong
+                            class="text-white">société individuelle</strong> une fois certains objectifs atteints. Tout
+                        sera entièrement légal et déclaré.
+                    </p>
+                </details>
+
+                <details
+                    class="group bg-card rounded-2xl p-6 border border-gray-800 hover:border-brand-green/30 transition-colors cursor-pointer">
+                    <summary class="font-bold text-lg text-white flex items-center justify-between list-none">
+                        📣 Comment j'attire des clients
+                        <span class="text-brand-green text-xl group-open:rotate-45 transition-transform">+</span>
+                    </summary>
+                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">
+                        • <strong class="text-white">TikTok</strong> : ma notoriété auprès de mes abonnés<br>
+                        • <strong class="text-white">YouTube</strong> : contenu éducatif + promotion<br>
+                        • <strong class="text-white">Démarchage direct</strong> : démos personnalisées pour les
+                        entreprises<br>
+                        • <strong class="text-white">Bouche à oreille</strong> : la qualité de nos livrables parle pour
+                        nous
+                    </p>
+                </details>
+
+                <details
+                    class="group bg-card rounded-2xl p-6 border border-gray-800 hover:border-brand-green/30 transition-colors cursor-pointer">
+                    <summary class="font-bold text-lg text-white flex items-center justify-between list-none">
+                        🎯 Qui sont nos clients ?
+                        <span class="text-brand-green text-xl group-open:rotate-45 transition-transform">+</span>
+                    </summary>
+                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">
+                        Nous ciblons <strong class="text-white">les entreprises</strong> (PME, startups, grands groupes)
+                        mais aussi <strong class="text-white">les particuliers</strong> qui ont un projet digital. Du
+                        Mali à l'international — nous parlons le langage de nos clients, quel que soit leur pays.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== REJOINDRE LE GROUPE DEV ==================== -->
+    <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <span class="text-brand-green font-semibold text-sm tracking-widest uppercase">Développeurs</span>
+            <h2 class="text-3xl sm:text-4xl font-calsans font-bold mt-3 mb-4">Rejoignez notre réseau</h2>
+            <p class="text-gray-400 max-w-xl mx-auto mb-8 text-sm leading-relaxed">
+                Vous êtes développeur (web, mobile, backend) ? Intégrez notre <strong class="text-brand-green">groupe
+                    WhatsApp</strong> privé et soyez notifié des projets disponibles. Travaillez en freelance, soyez
+                payé à la mission.
+            </p>
+            <a href="#contact"
+                class="inline-block px-8 py-4 bg-brand-green text-black font-bold rounded-full hover:bg-white transition-all duration-300 shadow-lg">
+                📱 Demander à rejoindre le groupe
+            </a>
+        </div>
+    </section>
+
+    
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-black">
+        <div class="max-w-3xl mx-auto text-center reveal">
+
+            <span class="text-brand-green font-semibold text-sm tracking-widest uppercase">
+                On démarre ?
+            </span>
+
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-calsans font-bold mt-3 mb-4 text-white">
+                Prêt à concrétiser votre projet
+            </h2>
+
+            <p class="text-gray-400 mb-10 text-sm leading-relaxed">
+                Que vous soyez au Mali, en Afrique de l'Ouest ou ailleurs dans le monde,
+                <strong class="text-white">OshunWebStudio</strong> est là pour vous.
+                Demandez un devis gratuit, sans engagement.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
+
+                <!-- EMAIL -->
+                <a href="mailto:oshunweb@gmail.com"
+                    class="px-7 py-4 bg-brand-green text-black font-bold rounded-full hover:bg-white hover:text-black transition-all duration-300 shadow-md text-lg flex items-center justify-center gap-3">
+
+                    <i class="fa-solid fa-envelope text-xl"></i>
+                    <span>Email</span>
+                </a>
+
+                <!-- WHATSAPP -->
+                <a href="https://wa.me/22389869204" target="_blank" rel="noopener"
+                    class="px-7 py-4 bg-green-600 text-white font-bold rounded-full hover:bg-green-500 transition-all duration-300 shadow-md text-lg flex items-center justify-center gap-3">
+
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>WhatsApp</span>
+                </a>
+
+                <!-- TIKTOK -->
+                <a href="https://tiktok.com/@kalifa47y" target="_blank" rel="noopener"
+                    class="px-7 py-4 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-all duration-300 shadow-md text-lg flex items-center justify-center gap-3">
+
+                    <i class="fa-brands fa-tiktok text-xl"></i>
+                    <span>TikTok</span>
+                </a>
+
+            </div>
+
+            <p class="text-xs text-gray-500 mt-8 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-location-dot text-brand-green"></i>
+                <span>
+                    Les prix varient selon votre pays. Un devis personnalisé vous sera fourni après prise de contact.
+                </span>
+            </p>
+
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer class="py-10 px-4 sm:px-6 lg:px-8 bg-black text-white border-t border-gray-800">
+        <div
+            class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-gray-400">
+            <img src="Frame 4.svg" alt="Oshun Web Studio" class="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain">
+
+            <p>&copy; <span id="currentYear">2026</span> OshunWebStudio. Tous droits réservés.</p>
+            <p class="text-xs">
+                🟢 Entreprise en cours d'immatriculation légale • Mali
+            </p>
+        </div>
+    </footer>
+
+    <button id="backToTop"
+        class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-brand-green text-black rounded-full shadow-lg flex items-center justify-center text-xl font-bold opacity-0 pointer-events-none transition-all duration-300 hover:bg-white hover:text-black"
+        aria-label="Retour en haut" title="Retour en haut">
+        ↑
+    </button>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const bar1 = document.getElementById('bar1');
+        const bar2 = document.getElementById('bar2');
+        const bar3 = document.getElementById('bar3');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let menuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove('hidden');
+                bar1.style.transform = 'rotate(45deg) translate(4px, 4px)';
+                bar2.style.opacity = '0';
+                bar3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+                bar3.style.width = '24px';
+            } else {
+                mobileMenu.classList.add('hidden');
+                bar1.style.transform = 'rotate(0) translate(0, 0)';
+                bar2.style.opacity = '1';
+                bar3.style.transform = 'rotate(0) translate(0, 0)';
+                bar3.style.width = '20px';
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuOpen = false;
+                bar1.style.transform = 'rotate(0) translate(0, 0)';
+                bar2.style.opacity = '1';
+                bar3.style.transform = 'rotate(0) translate(0, 0)';
+                bar3.style.width = '20px';
+            });
+        });
+
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                backToTop.classList.remove('opacity-0', 'pointer-events-none');
+                backToTop.classList.add('opacity-100');
+            } else {
+                backToTop.classList.add('opacity-0', 'pointer-events-none');
+                backToTop.classList.remove('opacity-100');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        console.log('%c🟢 OshunWebStudio %c• Prêt.',
+            'color: #08EB08; font-weight: bold; font-size: 18px;',
+            'color: #fff;');
+        console.log('%cAgence digitale • Sites web • Apps • SaaS • Paiement',
+            'color: #aaa; font-size: 12px;');
+    </script>
+
+</body>
+
+</html>
